@@ -152,252 +152,259 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 5,
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Card(
-                color: Color(0xFF35a8cd),
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.all(Radius.circular(20))),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    // height: 250,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
-                          child: Container(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                              "EUR",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  letterSpacing: 1.4,
-                                  fontFamily: "RaleWay",
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w700),
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Card(
+                  color: Color(0xFF35a8cd),
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.all(Radius.circular(20))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      // height: 250,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 10),
+                            child: Container(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                "EUR",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    letterSpacing: 1.4,
+                                    fontFamily: "RaleWay",
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700),
+                              ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
-                          child: Card(
-                            elevation: 15,
-                            // color: Colors.white.withOpacity(0.8),
-                            child: Padding(
-                              padding: EdgeInsets.fromLTRB(2, 4, 2, 2),
-                              child: Obx(
-                                () => TextField(
-                                  controller: amountController,
-                                  keyboardType:
-                                      TextInputType.numberWithOptions(),
-                                  onChanged: (value) {
-                                    currencyController.setamount(
-                                        double.parse(value.toString()));
-                                    currencyController.setAmountChecker(true);
-                                  },
-                                  decoration: InputDecoration(
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: Colors.white),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 10),
+                            child: Card(
+                              elevation: 15,
+                              // color: Colors.white.withOpacity(0.8),
+                              child: Padding(
+                                padding: EdgeInsets.fromLTRB(2, 4, 2, 2),
+                                child: Obx(
+                                  () => TextField(
+                                    controller: amountController,
+                                    keyboardType:
+                                        TextInputType.numberWithOptions(),
+                                    onChanged: (value) {
+                                      currencyController.setamount(
+                                          double.parse(value.toString()));
+                                      currencyController.setAmountChecker(true);
+                                    },
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.white),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.white),
+                                      ),
+                                      errorStyle:
+                                          textStyl(Colors.red.withOpacity(0.7)),
+                                      errorText: !currencyController
+                                              .amountChecker.value
+                                          ? "This field can't be empty"
+                                          : null,
+                                      labelStyle: textStyl(
+                                        Color(0xFF141c35),
+                                      ),
+                                      labelText: 'Amount'.toString(),
                                     ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: Colors.white),
-                                    ),
-                                    errorStyle:
-                                        textStyl(Colors.red.withOpacity(0.7)),
-                                    errorText:
-                                        !currencyController.amountChecker.value
-                                            ? "This field can't be empty"
-                                            : null,
-                                    labelStyle: textStyl(
-                                      Color(0xFF141c35),
-                                    ),
-                                    labelText: 'Amount'.toString(),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        SizedBox(width: 10),
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(20, 10, 20, 2),
-                          child: Row(
-                            children: [
-                              Container(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  "To",
-                                  style: TextStyle(
-                                      letterSpacing: 1.4,
-                                      color: Colors.white,
-                                      // fontSize: 16,
+                          SizedBox(width: 10),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(20, 10, 20, 2),
+                            child: Row(
+                              children: [
+                                Container(
+                                  alignment: Alignment.topLeft,
+                                  child: Text(
+                                    "To",
+                                    style: TextStyle(
+                                        letterSpacing: 1.4,
+                                        color: Colors.white,
+                                        // fontSize: 16,
 
-                                      fontFamily: "RaleWay",
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w700),
+                                        fontFamily: "RaleWay",
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w700),
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Expanded(
-                                child: Container(
-                                  height: 45,
-                                  child: Padding(
-                                    padding: EdgeInsets.fromLTRB(2, 4, 2, 0),
-                                    child: Obx(
-                                      () => TextField(
-                                        controller: toController,
-                                        onChanged: (value) {
-                                          currencyController
-                                              .setToCurrencySymbol(value);
-                                          currencyController.setTochecker(true);
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    height: 45,
+                                    child: Padding(
+                                      padding: EdgeInsets.fromLTRB(2, 4, 2, 0),
+                                      child: Obx(
+                                        () => TextField(
+                                          controller: toController,
+                                          onChanged: (value) {
+                                            currencyController
+                                                .setToCurrencySymbol(value);
+                                            currencyController
+                                                .setTochecker(true);
 
-                                          searchSymbols();
-                                        },
-                                        decoration: InputDecoration(
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.white),
+                                            searchSymbols();
+                                          },
+                                          decoration: InputDecoration(
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.white),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.white),
+                                            ),
+                                            errorStyle: textStyl(
+                                                Colors.red.withOpacity(0.7)),
+                                            errorText: !currencyController
+                                                    .toChecker.value
+                                                ? "This field can't be empty"
+                                                : null,
+                                            labelStyle: textStyl(
+                                              Colors.white,
+                                            ),
+                                            labelText: ''.toString(),
                                           ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.white),
-                                          ),
-                                          errorStyle: textStyl(
-                                              Colors.red.withOpacity(0.7)),
-                                          errorText: !currencyController
-                                                  .toChecker.value
-                                              ? "This field can't be empty"
-                                              : null,
-                                          labelStyle: textStyl(
-                                            Colors.white,
-                                          ),
-                                          labelText: ''.toString(),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              )
-                            ],
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 20),
-                        Obx(
-                          () => Container(
-                            child: currencyController.isConverted.value
-                                ? Center(
+                          SizedBox(height: 20),
+                          Obx(
+                            () => Container(
+                              child: currencyController.isConverted.value
+                                  ? Center(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: RichText(
+                                            text: TextSpan(
+                                                text: "",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 28,
+                                                    fontFamily: "RaleWay",
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                                children: <TextSpan>[
+                                              TextSpan(
+                                                text:
+                                                    "${(currencyController.amount.value * currencyController.rates['${currencyController.toCurrecySymbol.value}']).toStringAsFixed(2)}  ",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 28,
+                                                    fontFamily: "RaleWay",
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                              TextSpan(
+                                                text:
+                                                    '${currencyController.toCurrecySymbol.value}',
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 18,
+                                                  fontFamily: "RaleWay",
+                                                ),
+                                              )
+                                            ])),
+                                      ),
+                                    )
+                                  : Container(),
+                            ),
+                          ),
+                          Obx(
+                            () => Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 10),
+                              child: GestureDetector(
+                                onTap: () {
+                                  if (currencyController.amount.value == 0) {
+                                    currencyController.setAmountChecker(false);
+                                  }
+                                  if (currencyController
+                                          .toCurrecySymbol.value ==
+                                      "") {
+                                    currencyController.toChecker(false);
+                                  }
+                                  if (currencyController.amount.value != 0 &&
+                                      currencyController
+                                              .toCurrecySymbol.value !=
+                                          "") {
+                                    currencyController.setIsLoading(true);
+
+                                    onConvert();
+                                  }
+                                },
+                                child: Card(
+                                  elevation: 30,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: new BorderRadius.all(
+                                      Radius.circular(20),
+                                    ),
+                                  ),
+                                  child: Container(
                                     child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: RichText(
-                                          text: TextSpan(
-                                              text: "",
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 20, vertical: 10),
+                                      child: !currencyController.isLoading.value
+                                          ? Text(
+                                              "Convert",
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 28,
-                                                  fontFamily: "RaleWay",
-                                                  fontWeight: FontWeight.w700),
-                                              children: <TextSpan>[
-                                            TextSpan(
-                                              text:
-                                                  "${(currencyController.amount.value * currencyController.rates['${currencyController.toCurrecySymbol.value}']).toStringAsFixed(2)}  ",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 28,
-                                                  fontFamily: "RaleWay",
-                                                  fontWeight: FontWeight.w700),
-                                            ),
-                                            TextSpan(
-                                              text:
-                                                  '${currencyController.toCurrecySymbol.value}',
-                                              style: TextStyle(
+                                                letterSpacing: 1.4,
                                                 color: Colors.white,
-                                                fontSize: 18,
+                                                // fontSize: 16,
+                                                fontWeight: FontWeight.w600,
                                                 fontFamily: "RaleWay",
                                               ),
                                             )
-                                          ])),
-                                    ),
-                                  )
-                                : Container(),
-                          ),
-                        ),
-                        Obx(
-                          () => Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
-                            child: GestureDetector(
-                              onTap: () {
-                                if (currencyController.amount.value == 0) {
-                                  currencyController.setAmountChecker(false);
-                                }
-                                if (currencyController.toCurrecySymbol.value ==
-                                    "") {
-                                  currencyController.toChecker(false);
-                                }
-                                if (currencyController.amount.value != 0 &&
-                                    currencyController.toCurrecySymbol.value !=
-                                        "") {
-                                  currencyController.setIsLoading(true);
-
-                                  onConvert();
-                                }
-                              },
-                              child: Card(
-                                elevation: 30,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: new BorderRadius.all(
-                                    Radius.circular(20),
-                                  ),
-                                ),
-                                child: Container(
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 20, vertical: 10),
-                                    child: !currencyController.isLoading.value
-                                        ? Text(
-                                            "Convert",
-                                            style: TextStyle(
-                                              letterSpacing: 1.4,
-                                              color: Colors.white,
-                                              // fontSize: 16,
-                                              fontWeight: FontWeight.w600,
-                                              fontFamily: "RaleWay",
+                                          : Text(
+                                              "Converting...",
+                                              style: TextStyle(
+                                                letterSpacing: 1.4,
+                                                color: Colors.white,
+                                                // fontSize: 16,
+                                                fontWeight: FontWeight.w600,
+                                                fontFamily: "RaleWay",
+                                              ),
                                             ),
-                                          )
-                                        : Text(
-                                            "Converting...",
-                                            style: TextStyle(
-                                              letterSpacing: 1.4,
-                                              color: Colors.white,
-                                              // fontSize: 16,
-                                              fontWeight: FontWeight.w600,
-                                              fontFamily: "RaleWay",
-                                            ),
-                                          ),
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFF141c35),
-                                    border: Border.all(
-                                      color: Colors.white,
                                     ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(8.0),
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF141c35),
+                                      border: Border.all(
+                                        color: Colors.white,
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(8.0),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
