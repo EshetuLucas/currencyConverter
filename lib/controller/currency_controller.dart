@@ -8,13 +8,17 @@ class CurrencyController extends GetxController {
   final amountChecker = true.obs;
   final toChecker = true.obs;
   final isLoading = false.obs;
+  final onApiError = false.obs;
   final isConverted = false.obs;
   final symbol = "".obs;
   final isSymbol = false.obs;
   final toValue = "".obs;
-  final toCurrecySymbol = "".obs;
+  final toCurrecySymbol = "USD".obs;
+  final errorMessage = "".obs;
   final symbols = Map<String, dynamic>().obs;
   final List listOfSearch = [].obs;
+  final List listOfSymbols = [].obs;
+  final List listOfSymbolsValue = [].obs;
   final List listOfSearchKeys = [].obs;
   Dio dio = new Dio();
   CheckInternet checkInternet = new CheckInternet();
@@ -28,6 +32,22 @@ class CurrencyController extends GetxController {
 
   setToCurrencySymbolCoverted(String value) {
     toCurrecySymbol(value);
+  }
+
+  setListofSymbolsValue(String value) {
+    listOfSymbolsValue.add(value);
+  }
+
+  setOnApiError(bool value) {
+    onApiError(value);
+  }
+
+  setListOfSymbolsForDropDown(String value) {
+    listOfSymbols.add(value);
+  }
+
+  setErrorMessage(String newErrorMessage) {
+    errorMessage(newErrorMessage);
   }
 
   setRates(var rate) {

@@ -38,8 +38,10 @@ dev_dependencies:
   dio:
   fluttertoast: ^7.1.6
   http: ^0.12.2
+  shared_preferences:
+  flutter_spinkit: ^4.1.2+1  
 
-# For information on the generic Dart part of this file, see the
+# For information on the generic Dart part of this file, see the who are 
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
